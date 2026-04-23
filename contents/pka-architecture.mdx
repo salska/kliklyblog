@@ -83,6 +83,46 @@ Interacting with an AI is less like looking things up in a system and more like 
 ### Chapter 5: The Living Specification: Governing CLAUDE.md
 The operational specification is a living document called that defines ORKA. Changing it requires a six step process. First, someone identifies a need. Then the Business Analyst validates it. Orka reviews the process impact within five minutes. Finally, the owner gives strategic approval before implementation and notification. A quarterly audit is required to ensure the documents match reality.
 
+#### The Role of CLAUDE.md in Defining ORKA
+While Orka is the engine, CLAUDE.md is the **mental architecture** that ensures the engine remains deterministic. Its role is threefold:
+
+1.  **Behavioral Enforcement (The Schema Layer):** CLAUDE.md acts as the "schema" that governs LLM behavior, transforming it from a generic chatbot into a disciplined system enforcer. It explicitly defines the **5-stage pipeline** (CLASSIFY, VALIDATE, ROUTE, VERIFY, LOG), ensuring no stage is skipped.
+2.  **Constraint Implementation (IP-0003):** The file houses the technical **circuit-breaker** definitions. It lists the prohibited toolsets (e.g., Write, Bash) for the orchestrator, ensuring that Orka adheres to the strict prohibition against execution.
+3.  **Authority Mapping:** It codifies the **Four-Tier Authority Model**, specifying which specialists (Archie, Bart, etc.) have unilateral power over specific filesystem directories and which decisions require escalation to the Owner.
+
+#### The Collaborative Amendment Process
+Updating the system's core logic requires a collaborative, multi-specialist workflow to prevent "documentation drift" or systemic corruption. This is managed through a **6-step amendment process** overseen by the **Librarian**:
+
+#### 1. Identification of Need (The Specialist Trigger)
+Changes typically originate from **Archie (Systems Architect)** or **Bart (Business Analyst)**. If Archie determines a new architectural pattern is required (e.g., a move to modular microservices), or if Bart identifies a new regulatory requirement, they flag the need for a system update.
+
+#### 2. Librarian Validation (The Governance Gate)
+The **Librarian** performs a **delta-evaluation** of the proposed change. Using a "Truth Mesh" approach, the Librarian compares the new rule against existing truths in CLAUDE.md to identify redundancies or conflicts. If a conflict is found (e.g., a new rule contradicts the IP-0003 constraint), the Librarian halts the process and routes it for resolution.
+
+#### 3. Orka Process Impact Review (The 5-Minute SLA)
+Once validated for governance, **Orka** analyzes the change's impact on the deterministic pipeline. This review is subject to a strict **5-minute Service Level Agreement (SLA)**. Orka determines if the change affects:
+*   **Routing Atomicity:** Will the new rule delay delegation?
+*   **Time-to-Delegate:** Does it threaten the 10-minute task budget?.
+
+#### 4. Strategic Approval (The Owner Sign-off)
+High-stakes changes—those affecting Tier 2 or Tier 3 authority—require **Sal (The Owner)** to provide strategic approval. This step ensures that the mechanical evolution of the system remains aligned with long-term human objectives.
+
+#### 5. Implementation (The Atomic Commit)
+The Librarian updates CLAUDE.md. In a PKA environment, this is often handled as a "Bootstrap" or "Init" operation where the AI analyzes the existing state and writes the new draft to the root directory. To maintain **filesystem sovereignty**, the update must include updated YAML frontmatter and a record in the **LOG.md** (the system's chronological changelog).
+
+#### 6. Stakeholder Notification and Sync
+The **Wikita (Tier 4)** administrator ensures the updated CLAUDE.md is synced across the wiki and filesystem within five minutes. All specialists are then "notified" via their respective session hooks, ensuring that every agent in the organization is operating on the same updated version of reality.
+
+#### Summary of Specialist Collaboration in Amendments
+
+| Specialist | Responsibility in Amendment | Authority Tier |
+| :--- | :--- | :--- |
+| **Archie/Bart** | Identifies gaps in technical/business logic. | Tier 1 (Domain) |
+| **Librarian** | Delta-evaluation; conflict detection; path consistency. | Tier 3 (Governance) |
+| **Orka** | Mechanical impact review; SLA monitoring. | Tier 2 (Constraint) |
+| **Sal (Owner)** | Strategic sign-off for high-impact logic changes. | N/A (Strategic) |
+| **Wikita** | Infrastructure sync; SLA enforcement (5-min). | Tier 4 (Admin) |
+
 ### Chapter 6: Filesystem Sovereignty
 The filesystem is organized by who owns the work. Canonical paths are strictly enforced to prevent messy duplicates. Every document must carry YAML frontmatter that specifies its type, status, and stage. Agents have twenty-four hours to move completed work to the evidence folder. This keeps the active workspace clean and the audit trail clear.
 
