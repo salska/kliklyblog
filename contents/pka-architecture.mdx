@@ -115,13 +115,42 @@ The **Wikita (Tier 4)** administrator ensures the updated CLAUDE.md is synced ac
 
 #### Summary of Specialist Collaboration in Amendments
 
-| Specialist | Responsibility in Amendment | Authority Tier |
-| :--- | :--- | :--- |
-| **Archie/Bart** | Identifies gaps in technical/business logic. | Tier 1 (Domain) |
-| **Librarian** | Delta-evaluation; conflict detection; path consistency. | Tier 3 (Governance) |
-| **Orka** | Mechanical impact review; SLA monitoring. | Tier 2 (Constraint) |
-| **Sal (Owner)** | Strategic sign-off for high-impact logic changes. | N/A (Strategic) |
-| **Wikita** | Infrastructure sync; SLA enforcement (5-min). | Tier 4 (Admin) |
+<table>
+<thead>
+<tr>
+<th>Specialist</th>
+<th>Responsibility in Amendment</th>
+<th>Authority Tier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**Archie/Bart**</td>
+<td>Identifies gaps in technical/business logic.</td>
+<td>Tier 1 (Domain)</td>
+</tr>
+<tr>
+<td>**Librarian**</td>
+<td>Delta-evaluation; conflict detection; path consistency.</td>
+<td>Tier 3 (Governance)</td>
+</tr>
+<tr>
+<td>**Orka**</td>
+<td>Mechanical impact review; SLA monitoring.</td>
+<td>Tier 2 (Constraint)</td>
+</tr>
+<tr>
+<td>**Sal (Owner)**</td>
+<td>Strategic sign-off for high-impact logic changes.</td>
+<td>N/A (Strategic)</td>
+</tr>
+<tr>
+<td>**Wikita**</td>
+<td>Infrastructure sync; SLA enforcement (5-min).</td>
+<td>Tier 4 (Admin)</td>
+</tr>
+</tbody>
+</table>
 
 ### Chapter 6: Filesystem Sovereignty
 The filesystem is organized by who owns the work. Canonical paths are strictly enforced to prevent messy duplicates. Every document must carry YAML frontmatter that specifies its type, status, and stage. Agents have twenty-four hours to move completed work to the evidence folder. This keeps the active workspace clean and the audit trail clear.
