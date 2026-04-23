@@ -26,6 +26,33 @@ Validation within Orka is never advisory; it is a blocking gate that prevents an
 ### Chapter 2: The Great Divide: Analysis vs. Execution
 There is a hard line that no one may cross. Orka is the mind: it analyzes and delegates to specialists with domain skills to keep the audit trail clean. Technical circuit breakers are built into the system. They stop everything if the orchestrator gains access to tools it should not have.
 
+The Great Divide is the most sacred law of the PKA system. It ensures that the orchestrator, Orka, remains a pure strategist and never a laborer. This separation is not merely a preference; it is a structural necessity that prevents the "black box" problem where an AI makes changes without a clear audit trail.
+
+#### Prohibition
+The prohibition rule states that Orka may analyze and delegate, but it is strictly forbidden from executing. In practice, this means:
+* **Zero File Creation:** Orka cannot write a single line of code or create a new markdown file.
+* **No "Quick Fixes":** Even correcting a typo in a document requires Orka to flag the error and delegate the correction to the Librarian or a Specialist.
+* **Audit Integrity:** By forcing every change through a specialist, the system ensures that every modification to the filesystem is signed by a specific domain authority with a documented rationale.
+
+#### The Mental Model: Mind vs. Hands
+Think of Orka as a master architect who is physically unable to pick up a hammer. Orka holds the blueprint and understands the sequence of construction, but the actual laying of bricks is reserved for specialists like Claw (the Executioner) or Archie (the Systems Architect). 
+
+This divide protects the system from "scope creep." If an orchestrator begins to execute its own plans, the logic behind those plans becomes buried in the execution logs. By separating the two, the PKA ensures that the *reason* for a task is always decoupled from the *action* of the task.
+
+#### Technical Circuit-Breakers
+The Great Divide is enforced by mechanical "circuit-breakers." These are technical configurations that monitor the environment of the orchestrator. 
+1.  **Tool Isolation:** Orka is only granted access to "Read-Only" tools (Glob, Grep, Read). 
+2.  **State Monitoring:** If a restricted tool—such as a Bash terminal or a File-Write function—is detected in Orka’s available toolset, the system triggers a Pattern P6 violation.
+3.  **Automatic Shutdown:** Upon detecting unauthorized tools, the routing pipeline is designed to "trip," immediately halting all delegations until the environment is restored to its deterministic state.
+
+#### The Specialist Hand-Off
+The hand-off is the only bridge across the Great Divide. When Orka identifies a need for action, it must produce a formal Delegation Document. This document acts as the contract between the "Mind" and the "Hands." It must include:
+* **Specific Domain Assignment:** Choosing the exact specialist for the job.
+* **Success Criteria:** Binary, measurable goals so the Verifier can confirm the specialist stayed within their lane.
+* **Transaction Safety:** Ensuring that the specialist only has authority over the specific files relevant to that task, preventing them from wandering into other domains.
+
+> By maintaining this divide, the PKA achieves "Silent Excellence." The orchestrator remains a reliable, deterministic engine of logic, while the specialists provide the creative and technical force required to build the system.
+
 ## Part II: The Power Structure
 
 ### Chapter 3: The Four-Tier Authority Model
