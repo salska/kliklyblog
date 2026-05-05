@@ -47,7 +47,7 @@ From my perspective as a systems analyst, here is how this new architecture spec
 
 My original system failed because it had no functional memory; it ignored artifacts and reinvented the wheel every time. I solved this by moving the "source of truth" out of the LLM's context window and onto the filesystem
 
-**The Implementation:** I adopted a protocol where every task has its own dedicated directory (tasks/{"{"}task_id{"}"}/) containing specific JSON files like state.json and RESULT.json
+**The Implementation:** I adopted a protocol where every task has its own dedicated directory (tasks/{"{"}task_id{"}"}/) containing specific JSON files like **state.json** and **RESULT.json**
 
 **The Result:** Memory is no longer a "feeling" the agent has; it is a rigid, auditable history
 
@@ -59,17 +59,17 @@ I was previously stuck in a "loop of reinterpretation" where the agent would jus
 
 **The Implementation:** The LLM does not decide the lifecycle of a task. Instead, n8n manages the flow (Start -> Delegate -> Poll -> Resolve -> Finish)
 
-I use a script called poll_subtasks.py that waits in 45-second intervals to check if the agent has actually written a termination file like RESULT.json
+I use a script called **poll_subtasks.py** that waits in 45-second intervals to check if the agent has actually written a termination file like **RESULT.json**
 
-**The Result:** The system is now deterministic. If the agent doesn't produce a valid result or a specific question, it doesn't move forward. We’ve replaced "vague interpretation" with "deterministic routing"
+**The Result:** The system is now deterministic. If the agent doesn't produce a valid result or a specific question, it doesn't move forward. I’ve replaced "vague interpretation" with "deterministic routing"
 
 ## 3. Controlling the Tasklist with Orka (The Master Orchestrator)
 
 The issue of my ever-growing, never-shrinking tasklist was solved by centralizing "task birth." I introduced Orka, a Master Orchestrator responsible for Quality Assurance and blocker resolution.
 
-**The Implementation:** A task only terminates when Orka writes an APPROVED.json file
+**The Implementation:** A task only terminates when Orka writes an **APPROVED.json** file
 
-If there is a gap—like a missing security policy—Orka either resolves it using system knowledge (resolve_blocker.py) or escalates it to me via a macOS notification (ESCALATE.json)
+If there is a gap—like a missing security policy—Orka either resolves it using system knowledge (**resolve_blocker.py**) or escalates it to me via a macOS notification (**ESCALATE.json**)
 
 **The Result:** This created "Convergence via Approval"
 
@@ -79,9 +79,7 @@ The task list only grows if Orka identifies a specific, missing piece (e.g., "Yo
 
 In my old setup, if an agent got stuck, it just hallucinated a way out or stalled quietly. Now, the system is designed to fail "loudly" and helpfully.
 
-**The Implementation:** When an agent lacks the deterministic rules for a task, it is programmed to write a QUESTION.json
-. Orka then attempts to unblock it by writing an ANSWER.json
-. If the decision is strategic (e.g., "Should we migrate to AWS or Azure?"), the system pauses and waits for human input
+**The Implementation:** When an agent lacks the deterministic rules for a task, it is programmed to write a **QUESTION.json**. Orka then attempts to unblock it by writing an **ANSWER.json**. If the decision is strategic (e.g., "Should we migrate to AWS or Azure?"), the system pauses and waits for human input
 
 **The Result:** By enforcing these role boundaries, I’ve ensured that the agent never has to "guess" when it's out of its depth
 
