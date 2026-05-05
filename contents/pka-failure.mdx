@@ -47,7 +47,7 @@ From my perspective as a systems analyst, here is how this new architecture spec
 
 My original system failed because it had no functional memory; it ignored artifacts and reinvented the wheel every time. I solved this by moving the "source of truth" out of the LLM's context window and onto the filesystem
 
-**The Implementation:** I adopted a protocol where every task has its own dedicated directory (tasks/{task_id}/) containing specific JSON files like state.json and RESULT.json
+**The Implementation:** I adopted a protocol where every task has its own dedicated directory (tasks/{"{"}task_id{"}"}/) containing specific JSON files like state.json and RESULT.json
 
 **The Result:** Memory is no longer a "feeling" the agent has; it is a rigid, auditable history
 
