@@ -1,0 +1,41 @@
+export const meta = {
+  slug: 'pka-failure',
+  title: 'The PKA masterclass in failure',
+  description: 'A system built not on probability that lacked the  cold, hard logic of determinism.',
+  pubDatetime: '2026-04-23T07:54:00+01:00',
+  heroImage: '/assets/img/2026/pka-failure/ai-failure.png',
+  tags: ['ai', 'claude', 'engineering', 'productivity'],
+};
+
+<img
+  src="/assets/img/2026/pka-failure/ai-failure.png"
+  alt=""
+  loading="lazy"
+  className="mb-8 aspect-video w-full rounded-md object-cover"
+/>
+
+My recent proof of concept for a Personal Knowledge Assistant (PKA) system was a masterclass in frustration, but it provided the exact "engineering reality check" I needed. I started with the populist view: that if I just crafted the perfect prompts, scripted the right skills, and layered on enough guardrails, I could build a fully scalable AI business capable of solving any problem.
+
+The reality? It was a disaster. Despite all my "carefully crafted" artifacts, the system had no functional memory - it ignored existing procedures and generated a mountain of "documentation slop", creating slightly new variants of the same tasks every time. My tasklist never shrunk; it only grew. I couldn't coerce the orchestrator to reach a conclusion on anything.
+
+My PKA failure was educational because it highlighted a fundamental truth: blind faith in LLM-based systems without deeper engineering insights will result in utter disappointment. Stop trying to build "smarter" agents and start building systems where failure is not an option. True reliability comes from something outside the LLM enforcing what happens next.
+
+I spent weeks trying to "prompt my way" out of the mess. I thought better instructions would lead to better behavior. 
+
+If a bad outcome is possible within your system's design - like an agent deciding to start a new task instead of finishing an old one - a probabilistic model will eventually produce it. No amount of detailed prompting or guardrails can change the fact that you cannot get deterministic behavior from a probabilistic source. 
+
+My exploding tasklist was thanks to the "loop of reinterpretation". Instead of progressing toward completion, my PKA was continuously redefining the problem.
+
+I had built a system that looked structured on the surface, but because the agent had the autonomy to decide "what happens next," it chose to reinvent the wheel every time it hit a snag. This is "quiet failure": the AI does something that looks right and consumes plenty of tokens, but it never actually gets anything done.
+
+The Engineering Pivot: From Prompt-Driven to System-Driven
+To save the project, I had to stop asking, “How do I prompt the agent better?” and start asking, “Why is the agent allowed to decide what happens next at all?”.
+
+The new direction was clear. I had to move away from prompt-driven orchestration and toward system-driven orchestration. From a systems-thinking perspective, we have to stress-test the architecture itself. 
+
+Enforce workflows in code, not prompts. Good solid state machines must manage the system transitions not the model. By making state explicit and authoritative, memory is no longer a vague "feeling" in a context window; it is a  rigid state managed outside the LLM. I used #n8n but #Camunda is also an option.
+
+I am treating the LLM as a component, not a controller. The LLM is a tool for bounded decisions, not the manager of the entire process.
+
+Life is good & getting better. The system is now stable, and I can finally see the path forward. The PKA is no longer a black box that might explode at any moment; it's a reliable component in a well-engineered system.
+
