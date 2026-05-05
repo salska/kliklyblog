@@ -55,9 +55,16 @@ The system uses a Knowledge Management (KM) repository where the Operating Model
 
 ## 2. Ending the "Loop of Reinterpretation" via n8n Orchestration
 
-I was previously stuck in a "loop of reinterpretation" where the agent would just keep talking without doing. I broke this loop by implementing a "Hub-and-Spoke" architecture using n8n as a central state machine
+I was previously stuck in a "loop of reinterpretation" where the agent would just keep talking without doing. I broke this loop by implementing a "Hub-and-Spoke" architecture using n8n as a central state machine.
 
 **The Implementation:** The LLM does not decide the lifecycle of a task. Instead, n8n manages the flow (Start -> Delegate -> Poll -> Resolve -> Finish)
+
+<img
+  src="/assets/img/2026/pka-failure/n8n-workflow.png"
+  alt=""
+  loading="lazy"
+  className="mb-8 aspect-video w-full rounded-md object-cover"
+/>
 
 I use a script called **poll_subtasks.py** that waits in 45-second intervals to check if the agent has actually written a termination file like **RESULT.json**
 
