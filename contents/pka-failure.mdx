@@ -37,13 +37,13 @@ Enforce workflows in code, not prompts. Good solid state machines must manage th
 
 I am treating the LLM as a component, not a controller. The LLM is a tool for bounded decisions, not the manager of the entire process.
 
-## The New Architecture: PKA Orchestrator
+# The New Architecture: PKA Orchestrator
 
 When I looked at the wreckage of my initial PKA proof of concept, I realised I hadn't built a system; I had built a sophisticated gambling machine that used tokens instead of chips. To fix it, I had to stop trusting the LLM to "manage" itself and instead implemented the PKA Orchestrator, a deterministic, state-driven architecture that treats AI agents as bounded components rather than autonomous drivers.
 
 From my perspective as a systems analyst, here is how this new architecture specifically dismantled the points of failure that had previously defeated me:
 
-1. Solving "No Memory" with File-Based State
+## 1. Solving "No Memory" with File-Based State
 
 My original system failed because it had no functional memory; it ignored artifacts and reinvented the wheel every time. I solved this by moving the "source of truth" out of the LLM's context window and onto the filesystem
 
@@ -53,7 +53,7 @@ My original system failed because it had no functional memory; it ignored artifa
 
 The system uses a Knowledge Management (KM) repository where the Operating Model (PKA-OM) is injected into every task, ensuring the agent is always grounded in our standard operating procedures (SOPs)
 
-2. Ending the "Loop of Reinterpretation" via n8n Orchestration
+## 2. Ending the "Loop of Reinterpretation" via n8n Orchestration
 
 I was previously stuck in a "loop of reinterpretation" where the agent would just keep talking without doing. I broke this loop by implementing a "Hub-and-Spoke" architecture using n8n as a central state machine
 
@@ -63,7 +63,7 @@ I use a script called poll_subtasks.py that waits in 45-second intervals to chec
 
 **The Result:** The system is now deterministic. If the agent doesn't produce a valid result or a specific question, it doesn't move forward. We’ve replaced "vague interpretation" with "deterministic routing"
 
-3. Controlling the Tasklist with Orka (The Master Orchestrator)
+## 3. Controlling the Tasklist with Orka (The Master Orchestrator)
 
 The issue of my ever-growing, never-shrinking tasklist was solved by centralizing "task birth." I introduced Orka, a Master Orchestrator responsible for Quality Assurance and blocker resolution.
 
@@ -75,7 +75,7 @@ If there is a gap—like a missing security policy—Orka either resolves it usi
 
 The task list only grows if Orka identifies a specific, missing piece (e.g., "You found a bug but didn't update the SOP") and explicitly spawns a new, linked sub-task
 
-4. Replacing "Quiet Failure" with "Loud" Escalation
+## 4. Replacing "Quiet Failure" with "Loud" Escalation
 
 In my old setup, if an agent got stuck, it just hallucinated a way out or stalled quietly. Now, the system is designed to fail "loudly" and helpfully.
 
