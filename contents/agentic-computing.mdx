@@ -1,0 +1,48 @@
+export const meta = {
+  slug: 'agentic-computing',
+  title: 'Agentic Computing: The Future of Software Development',
+  description: 'Exploring the paradigm shift towards agentic computing and its implications for software development.',
+  pubDatetime: '2026-05-13T10:55:00+01:00',
+  heroImage: '/assets/img/2026/agentic-computing/agentic-computing.png',
+  tags: ['ai', 'agentic computing', 'software development', 'future of work', 'automation'],
+};
+
+<img
+  src="/assets/img/2026/agentic-computing/agentic-computing.png"
+  alt=""
+  loading="lazy"
+  className="mb-8 aspect-video w-full rounded-md object-cover"
+/>
+
+**Agentic computing**, particularly in the realm of software development (agentic coding), represents the transition into **Software 3.0**, where the computer is programmed using **natural language** to act as an active, collaborative partner. Unlike traditional AI tools, agentic systems participate in a **real-time back-and-forth interaction**, autonomously exploring codebases, planning implementations, and executing tasks while the human in the loop (HITLa) user acts as the customer.
+
+## The Agentic Workflow and Autonomy
+The core of this paradigm is the **agentic loop**, where the AI calls various tools (terminal commands, file readers, web fetchers) to solve complex problems. Developers interact with this loop through an **"autonomy slider,"** choosing the level of AI involvement:
+*   **Low Autonomy:** Targeted "chunks" of work or simple tab completion where the human remains in total control.
+*   **High Autonomy:** Letting the agent "rip" through an entire repository to implement broad features or research unknown issues.
+
+Agents like **Claude Code** have proven capable of working autonomously for over four hours on significant tasks by breaking them down into **subtasks** assigned to specialized **sub-agents**.
+
+## Context Management: The Fundamental Constraint
+The most critical skill in agentic computing is **context engineering**. Because Large Language Models (LLMs) have a finite context window, their performance degrades as the conversation, read files, and command outputs fill that window. 
+*   **Context Rot:** This occurs when a session becomes cluttered with failed attempts and noise, leading the agent to "backtrack" or accidentally reintroduce code it previously deleted.
+*   **Hygiene Strategies:** Experts recommend frequent **session resets** (`/clear`) rather than relying on automatic compaction, which can be "random" and lose key technical details.
+*   **Persistent State:** Developers use files like **CLAUDE.md** to store broad project rules, but these must be ruthlessly pruned; if they become "over-specified," the agent may ignore the most important instructions.
+
+## Building an "Agent-Friendly" Environment
+To maximize success, developers are optimizing their local systems for AI consumption rather than just human readability:
+*   **Unified Logging:** Forwarding browser console, server, and SQL logs into a **single text file** allows the agent to trace data flows across the entire stack.
+*   **Stable Ecosystems:** Agents perform significantly better in **stable languages** like Go, PHP, or basic Python, where coding patterns remain consistent over time.
+*   **CLI over MCP:** While the Model Context Protocol (MCP) is popular, many practitioners prefer **command-line (CLI) tools** because they are more token-efficient and allow the agent to compose larger pipelines into shell scripts.
+
+## Practical Applications Beyond Coding
+Agentic computing extends into **general systems engineering and research**.
+*   **System Maintenance:** Identifying large files for deletion or reconfiguring local machine settings (like Git flags).
+*   **Ad-hoc Tools:** Writing and executing temporary bash or Node.js scripts for one-off data analysis or file conversions (e.g., using FFmpeg).
+*   **CI/CD Integration:** Agents can use the GitHub CLI to create draft PRs, wait for CI failures, and autonomously iterate on the code until the tests pass.
+
+## Risks and Economic Reality
+Despite the productivity gains—such as building a native macOS app with 20,000 lines of code while only writing 1,000 by hand—the paradigm faces significant challenges. 
+*   **The "House of Cards":** Without senior oversight, agents can build "jumbled messes" with inconsistent naming and redundant methods.
+*   **Vibe Coding Dangers:** Relying on agents without understanding the underlying code (vibe coding) is described as a **"recipe for disaster"** for anything beyond a quick prototype.
+*   **The "Money Trap":** The unit economics of agentic computing are currently fragile; many startups are **unprofitable due to high API costs**, and the industry relies heavily on massive capital expenditures from big tech firms to sustain the bubble.
